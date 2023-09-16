@@ -1,10 +1,11 @@
 const axios = require('axios')
 
 const getById = async(id, description) => {
+
     const endpoint = description 
     ? `https://api.mercadolibre.com/items/${id}/description`
     : `https://api.mercadolibre.com/items/${id}`
-
+    
     const responseMeli = await axios.get(endpoint)
     const item = responseMeli.data
 
@@ -40,7 +41,7 @@ const getById = async(id, description) => {
     }
 
     const dataProduct = description ? productDescription : productData
-
+    
     return {
         dataProduct
     }
